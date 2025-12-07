@@ -3,9 +3,10 @@ document.getElementById("loginBtn").addEventListener("click", () => {
     const p = document.getElementById("password").value;
 
     // ❌ БАГ специально: нет проверки на пустые строки
-    if (u === "admin" && p === "123") {
-        document.getElementById("message").textContent = "Login success!";
-    } else {
-        document.getElementById("message").textContent = "Invalid credentials";
-    }
-});
+    if (!u || !p) {
+    document.getElementById("message").textContent = "Fields cannot be empty!";
+} else if (u === "admin" && p === "123") {
+    document.getElementById("message").textContent = "Login success!";
+} else {
+    document.getElementById("message").textContent = "Invalid credentials";
+}
